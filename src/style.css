@@ -1,0 +1,338 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root[data-theme="light"] {
+    --bg: #fef7ed;
+    --bg-dark: #f4ead5;
+    --text: #1f1b16;
+    --text-muted: #79746e;
+    --link: #825500;
+    --border: #e8e0d5;
+    --shadow: rgba(31, 27, 22, 0.08);
+    --button-hover: #e8e0d5;
+}
+
+:root[data-theme="dark"] {
+    --bg: #1f1b16;
+    --bg-dark: #151210;
+    --text: #ece0d1;
+    --text-muted: #ccc2b3;
+    --link: #ffb951;
+    --border: #49453e;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --button-hover: #2b2620;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-weight: 500;
+    line-height: 1.6;
+    background-color: var(--bg-dark);
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2379746e' fill-opacity='0.18'%3E%3Cpath d='M50 50c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10s-10-4.477-10-10 4.477-10 10-10zM10 10c0-5.523 4.477-10 10-10s10 4.477 10 10-4.477 10-10 10c0 5.523-4.477 10-10 10S0 25.523 0 20s4.477-10 10-10zm10 8c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm40 40c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    color: var(--text);
+    overflow: hidden;
+}
+
+.main-container {
+    display: flex;
+    gap: 1.2rem;
+    height: 100vh;
+    margin: 0;
+    padding: 2rem 2rem 2rem max(2rem, calc((100vw - 900px) * 0.33));
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    width: 100%;
+    background-color: var(--bg);
+    box-shadow:
+            0 1px 3px var(--shadow),
+            0 4px 12px var(--shadow);
+    border-radius: 8px;
+    overflow: hidden;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.content-wrapper::-webkit-scrollbar {
+    width: 12px;
+}
+
+.content-wrapper::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+
+.content-wrapper::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 6px;
+}
+
+.content-wrapper::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
+}
+
+.header-container {
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 1px solid var(--border);
+    padding: 2.2rem 4.2rem 0.5rem 4.2rem;
+    gap: 1rem;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding-top: 2rem;
+    position: sticky;
+    top: 2rem;
+    height: fit-content;
+}
+
+.nav-button,
+#theme-toggle {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.nav-button:hover,
+#theme-toggle:hover {
+    background-color: var(--button-hover);
+    text-decoration: none;
+}
+
+.nav-button:active,
+#theme-toggle:active {
+    background-color: var(--link);
+    text-decoration: none;
+    color: var(--bg);
+}
+
+#theme-toggle {
+    padding: 0.5rem;
+}
+
+#theme-toggle svg {
+    display: block;
+}
+
+[data-theme="light"] .moon {
+    display: none;
+}
+
+[data-theme="dark"] .sun {
+    display: none;
+}
+
+main {
+    flex: 1;
+    padding: 2rem 4.2rem;
+}
+
+a {
+    color: var(--link);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.tagline {
+    color: var(--text-muted);
+}
+
+.search-box {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: 0.25rem;
+    background: var(--bg);
+    color: var(--text);
+    font-family: inherit;
+}
+
+time {
+    color: var(--text-muted);
+    font-size: 0.9em;
+    margin-left: 0.5rem;
+}
+
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 4.2rem;
+    margin-top: auto;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.footer-content a {
+    color: var(--text-muted);
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.footer-content a:hover {
+    color: var(--link);
+    text-decoration: none;
+}
+
+.footer-content svg {
+    transition: transform 0.2s ease;
+}
+
+.footer-content a:hover svg {
+    transform: translateY(-2px);
+}
+
+.separator {
+    color: var(--text-muted);
+    user-select: none;
+}
+
+@media (max-width: 767px) {
+    body {
+        overflow: auto;
+    }
+
+    .main-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+        padding: 0;
+        gap: 0;
+    }
+
+    nav {
+        position: static;
+        flex-direction: row;
+        background: var(--bg);
+        padding: 1rem;
+        border-bottom: 1px solid var(--border);
+        gap: 0.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .nav-button,
+    #theme-toggle {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .content-wrapper {
+        border-radius: 0;
+        box-shadow: none;
+        height: auto;
+        overflow-y: visible;
+    }
+
+    .header-container {
+        padding: 1.5rem 1rem 0.5rem 1rem;
+    }
+
+    .site-title {
+        font-size: 1.5rem;
+    }
+
+    .tagline {
+        font-size: 0.9rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    footer {
+        padding: 1rem;
+    }
+
+    .footer-content {
+        font-size: 0.9rem;
+        gap: 1rem;
+    }
+
+    .footer-content svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (min-width: 640px) {
+    .app-container {
+        padding: 1.5rem;
+        max-width: 650px;
+    }
+}
+
+@media (min-width: 768px) {
+    .app-container {
+        padding: 2rem;
+        max-width: 700px;
+        font-size: 17px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.75rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .tagline {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+    }
+
+    .post-list {
+        padding-left: 1.5rem;
+    }
+
+    .post-list li {
+        margin-bottom: 0.75rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .app-container {
+        font-size: 18px;
+        max-width: 750px;
+    }
+}
