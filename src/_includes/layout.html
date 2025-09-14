@@ -4,13 +4,37 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
+  <!-- Primary Meta Tags -->
+  <title>{{ title }} | S.P.A.R.K.</title>
+  <meta name="title" content="{{ title }} | S.P.A.R.K.">
+  <meta name="description" content="{{ description or 'Slowly Producing Actually Readable Kode - A blog about software engineering, web development, and coding journey by Ryner Gold.' }}">
+  <meta name="author" content="Ryner Gold">
+  <meta name="generator" content="Eleventy">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://spark-blog.vercel.app{{ page.url }}">
+  <meta property="og:title" content="{{ title }} | S.P.A.R.K.">
+  <meta property="og:description" content="{{ description or 'Slowly Producing Actually Readable Kode - A blog about software engineering, web development, and coding journey by Ryner Gold.' }}">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary">
+  <meta property="twitter:url" content="https://spark-blog.vercel.app{{ page.url }}">
+  <meta property="twitter:title" content="{{ title }} | S.P.A.R.K.">
+  <meta property="twitter:description" content="{{ description or 'Slowly Producing Actually Readable Kode - A blog about software engineering, web development, and coding journey by Ryner Gold.' }}">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://spark-blog.vercel.app{{ page.url }}">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap"
         rel="stylesheet">
   
-  <title>{{ title }}</title>
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
